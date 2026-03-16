@@ -902,7 +902,7 @@ function selectWaTemplateByIdLegacy(id) {
 }
 
 // ===== Sidebar Toggle =====
-menuToggle.addEventListener("click", () => sidebar.classList.toggle("open"));
+menuToggle?.addEventListener("click", () => sidebar.classList.toggle("open"));
 document.getElementById("sidebarToggleBtn").addEventListener("click", () => sidebar.classList.toggle("collapsed"));
 
 // ===== Step Navigation =====

@@ -1,0 +1,1346 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create SKP Request — Alfamart Brand Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <img
+          src="img/logo.png"
+          alt="Alfamart"
+          class="logo"
+        />
+        <button class="sidebar-toggle-btn" id="sidebarToggleBtn">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M16 4h2a2 2 0 012 2v14a2 2 0 01-2 2H6a2 2 0 01-2-2V6a2 2 0 012-2h2"
+            />
+            <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+          </svg>
+          <span>Segment List</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+            <polyline points="14 2 14 8 20 8" />
+            <line x1="16" y1="13" x2="8" y2="13" />
+            <line x1="16" y1="17" x2="8" y2="17" />
+          </svg>
+          <span>Segment Request</span>
+        </a>
+        <a href="#" class="nav-item">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span>Campaign List</span>
+        </a>
+        <a href="#" class="nav-item active" data-nav="skp-request" onclick="navigateTo('list')">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
+            <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
+          </svg>
+          <span>SKP Request</span>
+        </a>
+        <a href="#" class="nav-item" data-nav="skp-admin" onclick="navigateTo('admin')">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M9 11l3 3L22 4" />
+            <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+          </svg>
+          <span>SKP Approval</span>
+        </a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user-info">
+          <div class="user-avatar">RN</div>
+          <div class="user-details">
+            <span class="user-name">Rania Indofood</span>
+            <span class="user-email">rania@indofood.co.id</span>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="main-content">
+      <header class="page-header">
+        <div class="header-left">
+          <button class="menu-toggle" id="menuToggle">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+          <h1 class="page-title">Surat Kerja Sama Promosi</h1>
+          <!-- <button id="devResetBtn" style="margin-left: 10px; padding: 4px 8px; font-size: 10px; border: 1px solid #ccc; background: #fff; cursor: pointer; border-radius: 4px;" title="Reset 10x limit (Dev Demo Only)">Reset Limit</button> -->
+        </div>
+        <button class="btn-create" id="openModalBtn">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <line x1="12" y1="5" x2="12" y2="19" />
+            <line x1="5" y1="12" x2="19" y2="12" />
+          </svg>
+          Create SKP Request
+        </button>
+      </header>
+
+      <!-- ===== PAGE: LIST ===== -->
+      <div id="pageList" class="page-content active">
+        <!-- TABLE -->
+        <div class="table-container">
+          <div class="table-toolbar">
+            <div class="search-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input type="text" placeholder="Search campaigns..." class="search-input" id="searchCampaignInput" />
+            </div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Campaign Name</th>
+                <th>Status</th>
+                <th>Campaign Type</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="campaignTableBody">
+              <!-- Populated by JS from skpStore -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ===== PAGE: DETAIL ===== -->
+      <div id="pageDetail" class="page-content" style="display:none">
+        <div class="detail-header">
+          <button class="btn-back" id="btnBackToList" onclick="navigateTo('list')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            Kembali
+          </button>
+          <div class="detail-title-row">
+            <div>
+              <h2 class="detail-title" id="detailTitle">-</h2>
+              <span class="detail-subtitle" id="detailSubtitle">SKP-0001</span>
+            </div>
+            <div class="detail-actions">
+              <span class="badge" id="detailStatusBadge">-</span>
+              <button class="btn-edit-detail" id="btnEditDetail" onclick="editSkpFromDetail()">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                Edit SKP
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Segment Selection (only visible when Approved) -->
+        <div class="segment-picker-card" id="segmentPickerSection" style="display:none">
+          <div class="segment-picker-header">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+            <span>SKP telah di-approve! Silakan pilih segment untuk campaign ini.</span>
+          </div>
+          <div class="segment-picker-body">
+            <div class="form-group" style="margin-bottom:0">
+              <label class="form-label">Pilih Segment</label>
+              <div class="select-wrapper">
+                <select class="form-select" id="detailSegmentSelect">
+                  <option value="">Select segment...</option>
+                  <option value="segment_a">Segment A — High Value Customers</option>
+                  <option value="segment_b">Segment B — Frequent Shoppers</option>
+                  <option value="segment_c">Segment C — New Customers</option>
+                  <option value="segment_d">Segment D — Lapsed Customers</option>
+                  <option value="segment_e">Segment E — Brand Loyalists</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-primary" id="btnSaveSegment" onclick="saveSegment()" style="margin-top:12px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+              Simpan Segment
+            </button>
+          </div>
+        </div>
+
+        <!-- WhatsApp Template Selection (only visible when Approved) -->
+        <div class="segment-picker-card" id="waTemplatePickerSection" style="display:none; margin-top: 16px;">
+          <div class="segment-picker-header" style="background: white; color: #1e293b; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: space-between; padding: 16px 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div style="background: #dc1e35; color: white; width: 32px; height: 32px; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="7" y1="2" x2="7" y2="6"/><line x1="17" y1="2" x2="17" y2="6"/></svg>
+              </div>
+              <span style="font-weight: 700; font-size: 1.1rem;">Select WhatsApp Templated & Setup Content</span>
+            </div>
+          </div>
+          
+          <div class="segment-picker-body">
+            <div class="wa-template-setup-layout">
+              
+              <!-- Left Side: Config -->
+              <div class="wa-setup-left">
+                
+                <!-- SELECT TEMPLATE -->
+                <div class="form-group" style="margin-bottom: 0;">
+                  <label class="form-label">Select WhatsApp Template</label>
+                  <div style="position: relative;">
+                    <div class="wa-search-input-wrap" id="waTemplateSearchWrapper">
+                      <input type="text" class="wa-search-input" id="waTemplateSearch" placeholder="Cari template..." autocomplete="off">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                    </div>
+                    <!-- Dropdown Area -->
+                    <div id="waTemplateListArea" style="display:none; position: absolute; top: 100%; left: 0; right: 0; z-index: 100; background: white; border: 1px solid #e2e8f0; border-radius: 0 0 6px 6px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); max-height: 250px; overflow-y: auto;">
+                      <div id="waTemplateList"></div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- UPLOAD BANNER -->
+                <div id="waUploadSection" style="opacity: 0.5; pointer-events: none; transition: all 0.3s ease;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <label class="form-label">Upload Banner Image</label>
+                    <span style="font-size: 0.75rem; color: #94a3b8;">JPG, PNG (Max 5MB)</span>
+                  </div>
+                  <div class="wa-upload-zone" id="waImageUploadZone">
+                    <div id="uploadPlaceholder">
+                      <div class="wa-upload-placeholder-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                      </div>
+                      <p style="font-size: 0.9rem; color: #475569; margin-bottom: 4px;">Drag and drop banner or <span style="color: #dc1e35; font-weight: 600; text-decoration: underline;">click to browse</span></p>
+                      <p style="font-size: 0.75rem; color: #94a3b8;">Recommended ratio 1.91:1 (e.g. 1200x630px)</p>
+                    </div>
+                    <div id="uploadPreview" style="display: none;">
+                      <img id="waUploadedImage" src="" style="max-height: 160px; max-width: 100%; border-radius: 4px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); object-fit: contain;">
+                      <p style="font-size: 0.75rem; color: #dc1e35; margin-top: 8px; font-weight: 600; text-decoration: underline;">Change Image</p>
+                    </div>
+                    <input type="file" id="waFileInput" style="display: none;" accept="image/*">
+                  </div>
+                </div>
+
+                <!-- TEMPLATE BODY -->
+                <div id="waBodySection" class="wa-body-section" style="opacity: 0.5; pointer-events: none;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                    <label class="form-label" style="margin: 0;">TEMPLATE BODY</label>
+                    <span style="background: #ecfdf5; color: #10b981; font-size: 0.7rem; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase;">Verified Template</span>
+                  </div>
+                  <div id="waTemplateSelectedBodyDisplay" style="padding: 16px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; font-size: 0.9rem; color: #475569; line-height: 1.5; min-height: 80px;">
+                    Select a template to view the body content.
+                  </div>
+                  <p style="font-size: 0.75rem; color: #f97316; margin-top: 12px; display: flex; align-items: center; gap: 6px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                    Body text is fixed based on WhatsApp Approval. Use variables for personalization.
+                  </p>
+                </div>
+
+                <!-- ACTIONS -->
+                <div class="wa-setup-actions">
+                  <button type="button" class="btn-primary" id="btnSubmitWaTemplate" style="flex: 1; min-width: 200px; justify-content: center;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                    Submit Templated
+                  </button>
+                  <button type="button" class="btn-secondary" id="btnCancelWaSetup">Cancel</button>
+                </div>
+
+              </div>
+
+              <!-- Right Side: Preview -->
+              <div class="wa-setup-right">
+                <div style="align-self: flex-start; margin-bottom: 24px;">
+                  <h4 style="display: flex; align-items: center; gap: 8px; color: #075e54; font-weight: 700; margin-bottom: 4px;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    Live Preview
+                  </h4>
+                  <p style="font-size: 0.8rem; color: #64748b;">Check how your campaign appears on customer devices.</p>
+                </div>
+
+                <div class="wa-phone-preview">
+                
+                  <div class="wa-phone-header">
+                    <div style="width: 36px; height: 36px; background: rgba(255,255,255,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    </div>
+                    <div>
+                      <div style="font-weight: 700; font-size: 0.95rem;">Alfamart Official</div>
+                      <div style="font-size: 0.7rem; opacity: 0.8;">Official Business Account</div>
+                    </div>
+                  </div>
+                  
+                  <div class="wa-chat-area">
+                    <div id="waChatEmpty" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; color: #8696a0; text-align: center; margin-top: 60px;">
+                      <p style="font-size: 0.9rem;">No template selected</p>
+                    </div>
+                    
+                    <div class="wa-chat-bubble" id="waChatBubble">
+                      <div class="wa-preview-banner" id="waPreviewBanner">
+                         <img id="waPreviewBannerImg" src="">
+                         <div class="wa-preview-banner-placeholder" id="bannerPlaceholder">
+                           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-bottom: 4px;"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                          
+                         </div>
+                      </div>
+                      <div class="wa-preview-body" id="waTemplatePreviewBody"></div>
+                      <div class="wa-preview-time-wrap">
+                        <span class="wa-preview-time">12:02 PM</span>
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#34b7f1" stroke-width="2"><polyline points="7 12 12 17 22 7"/><polyline points="2 12 7 17 7 17"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="wa-phone-footer">
+                    <div class="wa-phone-input-placeholder"></div>
+                    <div class="wa-phone-send-btn"><img
+          src="img/send.png"
+          alt="Alfamart"
+          class="send"
+        /></div>
+                  </div>
+                </div>
+                
+                <p style="font-size: 0.75rem; color: #64748b; margin-top: 16px; text-align: center; max-width: 240px;">
+                  The banner will be displayed at the top of the message bubble as shown above.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="detail-grid">
+          <!-- Left Column: Detail Cards -->
+          <div class="detail-cards" id="detailCards">
+            <!-- Populated by JS -->
+          </div>
+          <!-- Right Column: Activity Log -->
+          <div class="activity-log-panel">
+            <div class="activity-log-header">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Activity Log</span>
+            </div>
+            <div class="activity-log-timeline" id="activityLogTimeline">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PAGE: ADMIN ===== -->
+      <div id="pageAdmin" class="page-content" style="display:none">
+        <div class="admin-header">
+          <h2 class="admin-title">SKP Approval Dashboard</h2>
+          <p class="admin-subtitle">Review and approve submitted SKP requests</p>
+        </div>
+        <div class="admin-stats" id="adminStats">
+          <!-- Populated by JS -->
+        </div>
+
+        <!-- NEW: Content Approvals Section -->
+        <div id="contentApprovalsSection" style="margin-top: 32px; display: block;">
+          <div class="content-approvals-header">
+             <h3 style="font-size: 1.25rem; font-weight: 700; color: #1e293b; display: flex; align-items: center; gap: 10px; margin: 0;">
+               Content Approvals
+               <span id="contentApprovalCount" class="content-approval-count-badge">0</span>
+             </h3>
+             <button class="btn-secondary" onclick="renderAdminPage()">
+               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="margin-right:6px;"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+               Refresh
+             </button>
+          </div>
+          
+          <div class="content-approval-list-container">
+            <div id="contentApprovalList" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); gap: 20px;">
+               <!-- Populated by JS -->
+               <div style="grid-column: 1/-1; text-align: center; padding: 48px; background: white; border-radius: 12px; border: 1.5px dashed #e2e8f0; color: #94a3b8;">
+                  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom: 12px; opacity: 0.3;"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                  <p>No content templates awaiting review</p>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-queue-header">
+           <h3 class="admin-queue-title">SKP Request Queue</h3>
+        </div>
+
+        <div class="table-container">
+          <div class="table-toolbar">
+            <div class="search-box">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+              <input type="text" placeholder="Search SKP requests..." class="search-input" id="searchAdminInput" />
+            </div>
+            <div class="admin-filter">
+              <select class="form-select" id="adminStatusFilter" style="width:auto;padding:6px 12px;font-size:0.82rem">
+                <option value="all">All Status</option>
+                <option value="Submitted" selected>Submitted</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+              </select>
+            </div>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Campaign Name</th>
+                <th>Submitted By</th>
+                <th>Status</th>
+                <th>Campaign Type</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="adminTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ===== MODAL OVERLAY ===== -->
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal" id="modal">
+        <!-- CLOSE BUTTON -->
+        <button class="modal-close" id="closeModalBtn">
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+
+        <!-- MODAL HEADER -->
+        <div class="modal-header">
+          <h2 class="modal-title">Create SKP Request</h2>
+          <p class="modal-subtitle">
+            Fill in the campaign details step by step
+          </p>
+        </div>
+
+        <!-- STEPPER -->
+        <div class="stepper">
+          <div class="step active" data-step="1">
+            <div class="step-circle">
+              <span class="step-number">1</span>
+              <svg
+                class="step-check"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span class="step-label">Campaign Info</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="2">
+            <div class="step-circle">
+              <span class="step-number">2</span>
+              <svg
+                class="step-check"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span class="step-label">Promotion</span>
+          </div>
+          <div class="step-line"></div>
+          <div class="step" data-step="3">
+            <div class="step-circle">
+              <span class="step-number">3</span>
+              <svg
+                class="step-check"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="3"
+              >
+                <polyline points="20 6 9 17 4 12" />
+              </svg>
+            </div>
+            <span class="step-label">Review</span>
+          </div>
+        </div>
+
+        <!-- FORM STEPS CONTAINER -->
+        <div class="form-steps-container">
+          <!-- STEP 1: CAMPAIGN INFO -->
+          <div class="form-step active" id="step1">
+            <div class="step-content">
+              <div class="step-header-layout">
+                <div class="step-icon">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path
+                      d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"
+                    />
+                    <path
+                      d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"
+                    />
+                  </svg>
+                </div>
+                <div class="step-header-text">
+                  <h3 class="step-title">Campaign Information</h3>
+                  <p class="step-description">Basic details about your campaign</p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Campaign Name</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="campaignName"
+                  placeholder="e.g. Indofood Thank You & Cross-Sell (Week 1)"
+                />
+                <span class="form-hint"
+                  >Give your campaign a descriptive name</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Description</label>
+                <textarea
+                  class="form-textarea"
+                  id="campaignDesc"
+                  placeholder="Briefly describe the campaign objective"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Campaign Idea</label>
+                <textarea
+                  class="form-textarea"
+                  id="campaignIdea"
+                  placeholder="Describe the main campaign idea"
+                  rows="3"
+                ></textarea>
+                <span class="form-hint"
+                  >Optional — outline your creative approach</span
+                >
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Campaign Type</label>
+                <div class="select-wrapper">
+                  <select class="form-select" id="campaignTypeDropdown">
+                    <option value="">Select campaign type</option>
+                    <option value="voucher">Voucher</option>
+                    <option value="non_voucher">Non-Voucher</option>
+                  </select>
+                </div>
+              </div>
+
+              <hr style="margin: 2rem 0; border: 0; border-top: 1px dashed var(--border);" />
+              <h4 style="margin-bottom: 1rem; font-size: 1rem; color: var(--text-base);">Campaign Schedule</h4>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label class="form-label required">Start Date</label>
+                  <input type="date" class="form-input" id="startDate" />
+                </div>
+                <div class="form-group flex-1">
+                  <label class="form-label required">End Date</label>
+                  <input type="date" class="form-input" id="endDate" />
+                </div>
+              </div>
+
+              <div class="date-hint">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="12" y1="16" x2="12" y2="12" />
+                  <line x1="12" y1="8" x2="12.01" y2="8" />
+                </svg>
+                <span>Campaign duration will be calculated automatically</span>
+              </div>
+
+              <div
+                class="duration-card"
+                id="durationCard"
+                style="display: none"
+              >
+                <div class="duration-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </div>
+                <span class="duration-text" id="durationText"></span>
+              </div>
+
+              <!-- WhatsApp Template section removed -->
+            </div>
+          </div>
+
+          <!-- STEP 2: PROMOTION DETAILS -->
+          <div class="form-step" id="step2">
+
+            <div class="step-content">
+              <div class="step-header-layout">
+                <div class="step-icon">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <polygon
+                      points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                    />
+                  </svg>
+                </div>
+                <div class="step-header-text">
+                  <h3 class="step-title">Promotion Details</h3>
+                  <p class="step-description">
+                    Define your promotion type and mechanism
+                  </p>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Tema Promosi</label>
+                <input
+                  type="text"
+                  class="form-input"
+                  id="temaPromosi"
+                  placeholder="e.g. Promo Akhir Bulan"
+                />
+              </div>
+
+              <div class="form-row">
+                <div class="form-group flex-1">
+                  <label class="form-label required">Bentuk Promosi</label>
+                  <div class="select-wrapper">
+                    <select class="form-select" id="bentukPromosi">
+                      <option value="">Select bentuk promosi</option>
+                      <option value="potongan_harga">Potongan Harga</option>
+                      <option value="gratis_produk">Gratis Produk</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group" id="mekanismeGroup">
+                <label class="form-label required">Mekanisme Promosi</label>
+                <textarea
+                  class="form-textarea"
+                  id="mekanismePromosi"
+                  placeholder="Describe the promotion mechanism"
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <hr style="margin: 2.5rem 0; border: 0; border-top: 1px dashed var(--border);" />
+              <div class="step-header-text" style="margin-bottom: 1.5rem;">
+                <h3 class="step-title">Promotion Type</h3>
+                <p class="step-description">
+                  Define your target audience segment
+                </p>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label required">Promotion Type</label>
+                <div class="campaign-type-cards">
+                  <label class="type-card" id="cardAffinity">
+                    <input type="radio" name="campaignType" value="affinity" />
+                    <div class="type-card-inner">
+                      <div class="type-card-icon">
+                        <svg
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                          <circle cx="9" cy="7" r="4" />
+                          <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                          <path d="M16 3.13a4 4 0 010 7.75" />
+                        </svg>
+                      </div>
+                      <h4 class="type-card-title">Affinity</h4>
+                      <p class="type-card-desc">
+                        Target by category & affinity segments
+                      </p>
+                    </div>
+                  </label>
+                  <label class="type-card" id="cardTargeting">
+                    <input type="radio" name="campaignType" value="campaign_Type" />
+                    <div class="type-card-inner">
+                      <div class="type-card-icon">
+                        <svg
+                          width="28"
+                          height="28"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="1.5"
+                        >
+                          <circle cx="12" cy="12" r="10" />
+                          <circle cx="12" cy="12" r="6" />
+                          <circle cx="12" cy="12" r="2" />
+                        </svg>
+                      </div>
+                      <h4 class="type-card-title">Targeted</h4>
+                      <p class="type-card-desc">
+                        Target by brand, category &amp; area
+                      </p>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- AFFINITY FIELDS -->
+              <div class="conditional-section" id="affinitySection" style="display: none;">
+                <div class="form-group">
+                  <label class="form-label required">Brand</label>
+                  <div class="searchable-combobox" id="comboboxBrand">
+                    <input type="hidden" id="selectBrand" value="">
+                    <div class="combobox-input-wrapper">
+                      <input type="text" class="combobox-input" placeholder="Search brand..." autocomplete="off">
+                      <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="combobox-dropdown" id="dropdownBrand">
+                      <!-- Dynamic brands -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label required">Category</label>
+                  <div class="searchable-combobox" id="comboboxCategory">
+                    <input type="hidden" id="selectCategory" value="">
+                    <div class="combobox-input-wrapper">
+                      <input type="text" class="combobox-input" placeholder="Search category..." autocomplete="off">
+                      <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="combobox-dropdown" id="dropdownCategory">
+                      <!-- Dynamic categories -->
+                    </div>
+                  </div>
+                </div>
+
+                <hr style="margin: 1.5rem 0; border: 0; border-top: 1px dashed var(--border);" />
+
+                <div class="form-group">
+                  <label class="form-label">Target Affinity By</label>
+                  <div style="display: flex; gap: 12px; margin-bottom: 12px;">
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                      <input type="radio" name="affinityBy" value="categories" checked onchange="toggleAffinityFields()">
+                      Categories
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 6px; cursor: pointer;">
+                      <input type="radio" name="affinityBy" value="plus" onchange="toggleAffinityFields()">
+                      PLUs
+                    </label>
+                  </div>
+                </div>
+
+                <div class="form-group" id="affinityCompetitorCategoryGroup">
+                  <label class="form-label required">Category</label>
+                  <div class="searchable-combobox" id="comboboxAffinityCategory">
+                    <input type="hidden" id="selectAffinityCategory" value="">
+                    <div class="combobox-input-wrapper">
+                      <input type="text" class="combobox-input" placeholder="Search competitor category..." autocomplete="off">
+                      <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="combobox-dropdown" id="dropdownAffinityCategory">
+                      <!-- Dynamic categories -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" id="affinityCompetitorPLUGroup" style="display: none;">
+                  <label class="form-label required">Competitor PLU</label>
+                  <div class="searchable-combobox" id="comboboxAffinityPLU">
+                    <input type="hidden" id="selectAffinityPLU" value="">
+                    <div class="combobox-input-wrapper">
+                      <input type="text" class="combobox-input" placeholder="Search competitor PLU..." autocomplete="off">
+                      <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </div>
+                    <div class="combobox-dropdown" id="dropdownAffinityPLU">
+                      <!-- Dynamic PLUs -->
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group" style="margin-top: 1rem;">
+                  <label class="form-label required">Order By</label>
+                  <div class="select-wrapper">
+                    <select class="form-select" id="affinityOrderBy">
+                      <option value="quantity">Quantity</option>
+                      <option value="historical_transaction">transaksi pada bulan terbaru</option>
+                    </select>
+                  </div>
+                </div>
+
+
+
+                <!-- HITUNG AUDIENCE BUTTON (AFFINITY) -->
+                <div>
+                  <button type="button" class="btn btn-secondary btn-hitung" id="btnHitungAffinity" style="display: none; width: 100%; margin-bottom: 5px;">
+                    <span class="btn-text">Hitung Audience</span>
+                    <div class="btn-loader" style="display: none;">
+                      <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+                      Menghitung...
+                    </div>
+                  </button>
+                  <p class="form-hint" id="hitungAffinityNote" style="display: none; text-align: center; margin-bottom: 20px; font-style: italic;">
+                    * Batas perhitungan audience: 3 kali per hari.
+                  </p>
+                </div>
+
+                <!-- AUDIENCE CARD (AFFINITY) -->
+                <div
+                  class="audience-card"
+                  id="audienceCard"
+                  style="display: none; flex-direction: column;"
+                >
+                  <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                    <div class="audience-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                        <path d="M16 3.13a4 4 0 010 7.75" />
+                      </svg>
+                    </div>
+                    <div class="audience-info">
+                      <span class="audience-label">Total Audience</span>
+                      <span class="audience-value" id="audienceValue">0</span>
+                    </div>
+                  </div>
+                  <!-- Breakdown container for Affinity -->
+                  <div class="audience-breakdown" id="audienceBreakdownAffinity" style="display: none; width: 100%; margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(0,0,0,0.1);"></div>
+                  <p class="audience-note" style="width: 100%; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-style: italic;">
+                    * Estimasi audience berkurang 30%
+                  </p>
+                </div>
+              </div>
+
+              <!-- TARGETING FIELDS -->
+              <div
+                class="conditional-section"
+                id="targetingSection"
+                style="display: none"
+              >
+                <!-- Targeted Type Selection -->
+                <div class="form-group">
+                  <label class="form-label required">Targeted Type</label>
+                  <div style="display: flex; gap: 16px; margin-top: 8px;">
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #475569;">
+                      <input type="radio" name="targetedType" value="segmentation" style="width: 16px; height: 16px; accent-color: var(--primary);">
+                      Segmentation
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #475569;">
+                      <input type="radio" name="targetedType" value="historical" style="width: 16px; height: 16px; accent-color: var(--primary);">
+                      Historical
+                    </label>
+                  </div>
+                </div>
+
+                <!-- COMMON FIELDS (Placed inside conditional sections for clarity as per user request structure) -->
+
+                <!-- SEGMENTATION SECTION -->
+                <div id="segmentationWrapper" style="display: none;">
+                  <div class="form-row">
+                    <div class="form-group flex-1">
+                      <label class="form-label">Age Range (Optional)</label>
+                      <select class="form-select" id="segAgeRange">
+                        <option value="">All Ages</option>
+                        <option value="18-24">18-24 Tahun</option>
+                        <option value="25-33">25-33 Tahun</option>
+                        <option value="34-45">34-45 Tahun</option>
+                        <option value="45+">45+ Tahun</option>
+                      </select>
+                    </div>
+                    <div class="form-group flex-1">
+                      <label class="form-label">Gender (Optional)</label>
+                      <select class="form-select" id="segGender">
+                        <option value="">All Genders</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label required">Segmentation Type</label>
+                    <div style="display: flex; gap: 16px; margin-top: 8px;">
+                      <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #475569;">
+                        <input type="radio" name="segmentationType" value="loyalty" style="width: 16px; height: 16px; accent-color: var(--primary);">
+                        Loyalty
+                      </label>
+                      <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #475569;">
+                        <input type="radio" name="segmentationType" value="nel" style="width: 16px; height: 16px; accent-color: var(--primary);">
+                        New/Existing/Lapsed (NEL)
+                      </label>
+                    </div>
+                  </div>
+
+                  <div id="loyaltyFields" style="display: none; padding: 16px; background: var(--gray-50); border-radius: var(--radius-md); margin-bottom: 20px; border: 1px solid var(--gray-200);">
+                    <div id="loyaltyHeader" class="targeting-header">
+                      <div class="col-period">Periode</div>
+                      <div class="col-brand">Brand</div>
+                      <div class="col-category">Category</div>
+                      <div class="col-level">Loyalty Level</div>
+                      <div class="col-action"></div>
+                    </div>
+                    <div id="loyaltyRowsContainer"></div>
+                    
+                    <button type="button" class="btn-outline-dashed" id="btnAddLoyaltyRow">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      Add New Brand
+                    </button>
+                  </div>
+
+                  <div id="nelFields" style="display: none; padding: 16px; background: var(--gray-50); border-radius: var(--radius-md); margin-bottom: 20px; border: 1px solid var(--gray-200);">
+                    <div id="nelHeader" class="targeting-header">
+                      <div class="col-brand">Brand</div>
+                      <div class="col-category">Category</div>
+                      <div class="col-status">Status (Nel)</div>
+                      <div class="col-action"></div>
+                    </div>
+                    <div id="nelRowsContainer"></div>
+
+                    <button type="button" class="btn-outline-dashed" id="btnAddNelRow">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                      Add New Brand
+                    </button>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">DC (Optional)</label>
+                    <div class="searchable-combobox" id="comboboxDCSegment">
+                      <input type="hidden" id="selectDCSegment" value="">
+                      <div class="combobox-input-wrapper">
+                        <input type="text" class="combobox-input" placeholder="Search DC..." autocomplete="off">
+                        <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                      </div>
+                      <div class="combobox-dropdown" id="dropdownDCSegment">
+                        <div class="combobox-option" data-value="dc_tangerang">DC Tangerang</div>
+                        <div class="combobox-option" data-value="dc_cileungsi">DC Cileungsi</div>
+                        <div class="combobox-option" data-value="dc_balaraja">DC Balaraja</div>
+                        <div class="combobox-option" data-value="dc_parung">DC Parung</div>
+                        <div class="combobox-option" data-value="dc_bekasi">DC Bekasi</div>
+                        <div class="combobox-option" data-value="dc_jakarta">DC Jakarta</div>
+                        <div class="combobox-option" data-value="dc_bogor">DC Bogor</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="location-grid">
+                    <div class="form-group">
+                      <label class="form-label">Provinsi (Optional)</label>
+                      <div class="searchable-combobox" id="comboboxProvinsiSegment">
+                        <input type="hidden" id="selectProvinsiSegment" value="">
+                        <div class="combobox-input-wrapper">
+                          <input type="text" class="combobox-input" placeholder="Search Provinsi..." autocomplete="off">
+                          <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div class="combobox-dropdown" id="dropdownProvinsiSegment">
+                          <div class="combobox-option" data-value="dki_jakarta">DKI Jakarta</div>
+                          <div class="combobox-option" data-value="jawa_barat">Jawa Barat</div>
+                          <div class="combobox-option" data-value="jawa_tengah">Jawa Tengah</div>
+                          <div class="combobox-option" data-value="jawa_timur">Jawa Timur</div>
+                          <div class="combobox-option" data-value="banten">Banten</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Kota (Optional)</label>
+                      <div class="searchable-combobox" id="comboboxKotaSegment">
+                        <input type="hidden" id="selectKotaSegment" value="">
+                        <div class="combobox-input-wrapper">
+                          <input type="text" class="combobox-input" placeholder="Search Kota..." autocomplete="off">
+                          <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div class="combobox-dropdown" id="dropdownKotaSegment">
+                          <!-- Filled by dependency -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- HISTORICAL SECTION -->
+                <div id="historicalWrapper" style="display: none;">
+                  <div class="form-row">
+                    <div class="form-group flex-1">
+                      <label class="form-label">Age Range (Optional)</label>
+                      <select class="form-select" id="histAgeRange">
+                        <option value="">All Ages</option>
+                        <option value="18-24">18-24 Tahun</option>
+                        <option value="25-33">25-33 Tahun</option>
+                        <option value="34-45">34-45 Tahun</option>
+                        <option value="45+">45+ Tahun</option>
+                      </select>
+                    </div>
+                    <div class="form-group flex-1">
+                      <label class="form-label">Gender (Optional)</label>
+                      <select class="form-select" id="histGender">
+                        <option value="">All Genders</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div id="histHeader" class="targeting-header">
+                    <div class="col-brand">Brand</div>
+                    <div class="col-category">Category</div>
+                    <div class="col-plu">PLU</div>
+                    <div class="col-action"></div>
+                  </div>
+                  <div id="histTargetingRowsContainer" style="margin-bottom: 16px;">
+                    <!-- Dynamic Rows for Brand, Category, PLU -->
+                  </div>
+                  
+                  <button type="button" class="btn-outline-dashed" id="btnAddHistRow">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    Add New Brand
+                  </button>
+
+                  <div class="form-group" style="margin-top: 1rem;">
+                    <label class="form-label">Order By</label>
+                    <div class="select-wrapper">
+                      <select class="form-select" id="historicalOrderBy">
+                        <option value="quantity">Quantity</option>
+                        <option value="historical_transaction">Historical Transaksi</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">DC (Optional)</label>
+                    <div class="searchable-combobox" id="comboboxDCHist">
+                      <input type="hidden" id="selectDCHist" value="">
+                      <div class="combobox-input-wrapper">
+                        <input type="text" class="combobox-input" placeholder="Search DC..." autocomplete="off">
+                        <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                      </div>
+                      <div class="combobox-dropdown" id="dropdownDCHist">
+                        <div class="combobox-option" data-value="dc_tangerang">DC Tangerang</div>
+                        <div class="combobox-option" data-value="dc_cileungsi">DC Cileungsi</div>
+                        <div class="combobox-option" data-value="dc_balaraja">DC Balaraja</div>
+                        <div class="combobox-option" data-value="dc_parung">DC Parung</div>
+                        <div class="combobox-option" data-value="dc_bekasi">DC Bekasi</div>
+                        <div class="combobox-option" data-value="dc_jakarta">DC Jakarta</div>
+                        <div class="combobox-option" data-value="dc_bogor">DC Bogor</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="location-grid">
+                    <div class="form-group">
+                      <label class="form-label">Provinsi (Optional)</label>
+                      <div class="searchable-combobox" id="comboboxProvinsiHist">
+                        <input type="hidden" id="selectProvinsiHist" value="">
+                        <div class="combobox-input-wrapper">
+                          <input type="text" class="combobox-input" placeholder="Search Provinsi..." autocomplete="off">
+                          <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div class="combobox-dropdown" id="dropdownProvinsiHist">
+                          <div class="combobox-option" data-value="dki_jakarta">DKI Jakarta</div>
+                          <div class="combobox-option" data-value="jawa_barat">Jawa Barat</div>
+                          <div class="combobox-option" data-value="jawa_tengah">Jawa Tengah</div>
+                          <div class="combobox-option" data-value="jawa_timur">Jawa Timur</div>
+                          <div class="combobox-option" data-value="banten">Banten</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Kota (Optional)</label>
+                      <div class="searchable-combobox" id="comboboxKotaHist">
+                        <input type="hidden" id="selectKotaHist" value="">
+                        <div class="combobox-input-wrapper">
+                          <input type="text" class="combobox-input" placeholder="Search Kota..." autocomplete="off">
+                          <svg class="combobox-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </div>
+                        <div class="combobox-dropdown" id="dropdownKotaHist">
+                          <!-- Filled by dependency -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- HITUNG AUDIENCE BUTTON (TARGETED) -->
+                <div>
+                  <button type="button" class="btn btn-secondary btn-hitung" id="btnHitungTargeted" style="display: none; width: 100%; margin-bottom: 5px;">
+                    <span class="btn-text">Hitung Audience</span>
+                    <div class="btn-loader" style="display: none;">
+                      <svg class="spinner" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a10 10 0 0 1 10 10"/></svg>
+                      Menghitung...
+                    </div>
+                  </button>
+                  <p class="form-hint" id="hitungTargetedNote" style="display: none; text-align: center; margin-bottom: 20px; font-style: italic;">
+                    * Batas perhitungan audience: 3 kali per hari.
+                  </p>
+                </div>
+
+                <!-- AUDIENCE CARD (TARGETED) -->
+                <div
+                  class="audience-card"
+                  id="audienceCardTargeted"
+                  style="display: none; flex-direction: column;"
+                >
+                  <div style="display: flex; align-items: center; gap: 1rem; width: 100%;">
+                    <div class="audience-icon">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                      >
+                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                        <circle cx="9" cy="7" r="4" />
+                        <path d="M23 21v-2a4 4 0 00-3-3.87" />
+                        <path d="M16 3.13a4 4 0 010 7.75" />
+                      </svg>
+                    </div>
+                    <div class="audience-info">
+                      <span class="audience-label">Total Audience</span>
+                      <span class="audience-value" id="audienceValueTargeted">0</span>
+                    </div>
+                  </div>
+                  <!-- Breakdown container for Targeted -->
+                  <div class="audience-breakdown" id="audienceBreakdownTargeted" style="display: none; width: 100%; margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(0,0,0,0.1);"></div>
+                  <p class="audience-note" style="width: 100%; margin-top: 8px; font-size: 0.75rem; color: var(--text-muted); font-style: italic;">
+                    * Estimasi audience berkurang 30%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3: REVIEW -->
+          <div class="form-step" id="step3">
+            <div class="step-content">
+              <div class="step-header-layout">
+                <div class="step-icon review-icon">
+                  <svg
+                    width="32"
+                    height="32"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  >
+                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                    <polyline points="22 4 12 14.01 9 11.01" />
+                  </svg>
+                </div>
+                <div class="step-header-text">
+                  <h3 class="step-title">Review & Submit</h3>
+                  <p class="step-description">
+                    Verify all details before submitting your request
+                  </p>
+                </div>
+              </div>
+
+              <div class="review-sections" id="reviewSections">
+                <!-- Populated by JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- MODAL FOOTER -->
+        <div class="modal-footer">
+          <button class="btn-secondary" id="btnCancel">Cancel</button>
+          <div class="footer-right">
+            <button class="btn-outline" id="btnBack" style="display: none">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="19" y1="12" x2="5" y2="12" />
+                <polyline points="12 19 5 12 12 5" />
+              </svg>
+              Back
+            </button>
+            <button class="btn-primary" id="btnNext">
+              Next
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SUCCESS TOAST -->
+    <div class="toast" id="toast">
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+      >
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
+      </svg>
+      <span>SKP Request submitted successfully!</span>
+    </div>
+
+    <script src="index.js"></script>
+  </body>
+</html>

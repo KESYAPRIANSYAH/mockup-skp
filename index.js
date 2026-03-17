@@ -212,7 +212,7 @@ function addTargetingRow(containerId, typePrefix) {
       </div>
       <div class="col-category">
         <span class="col-header-label">CATEGORY</span>
-        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}">
+        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}" data-max="1">
           <input type="hidden" class="row-cat-val" value="">
           <div class="combobox-input-wrapper"><input type="text" class="combobox-input" placeholder="Select Category" autocomplete="off"></div>
           <div class="combobox-dropdown" id="ddCat_${rowIndex}"></div>
@@ -758,13 +758,21 @@ function initMultiSelectCombobox(comboboxId, onChange) {
     let current = getSelectedValues();
     const max = parseInt(container.dataset.max) || 0;
     if (isSelectAll) {
-      if (max === 1) return;
       const allOptionValues = Array.from(dropdown.querySelectorAll('.combobox-option')).filter(o => !(o.classList.contains('select-all-option') || o.dataset.value === 'all')).map(o => o.dataset.value);
       const allSelected = allOptionValues.length > 0 && allOptionValues.every(v => current.includes(v));
       current = allSelected ? [] : allOptionValues;
     } else {
-      if (current.includes(value)) current = current.filter(v => v !== value);
-      else { if (max === 1) { current = [value]; container.classList.remove('open'); } else current.push(value); }
+      if (max === 1) {
+        if (current.includes(value) && current.length === 1) {
+          current = [];
+        } else {
+          current = [value];
+          container.classList.remove('open');
+        }
+      } else {
+        if (current.includes(value)) current = current.filter(v => v !== value);
+        else current.push(value);
+      }
     }
     setSelectedValues(current); renderChips(); updateOptionStyles(); input.value = '';
     input.classList.remove('error');
@@ -796,7 +804,18 @@ function getComboboxText(comboboxId) {
   const container = document.getElementById(comboboxId);
   if (!container) return '-';
   const chips = container.querySelectorAll('.combobox-chip');
-  if (chips.length > 0) return Array.from(chips).map(c => c.textContent.trim().replace('×', '')).join(', ');
+  if (chips.length > 0) {
+    let labels = Array.from(chips).map(c => c.textContent.trim().replace('×', ''));
+    if (labels.length === 1 && labels[0] === 'Pilih Semua') {
+      const dropdown = container.querySelector('.combobox-dropdown');
+      if (dropdown) {
+        const allOptions = Array.from(dropdown.querySelectorAll('.combobox-option:not(.select-all-option)'))
+          .filter(o => o.dataset.value !== 'all');
+        if (allOptions.length > 0) return allOptions.map(o => o.textContent.trim()).join(', ');
+      }
+    }
+    return labels.join(', ');
+  }
   const input = container.querySelector('.combobox-input');
   return input ? (input.value || '-') : '-';
 }
@@ -1125,7 +1144,7 @@ function addSegmentationRow(containerId, typePrefix, segmentType) {
       </div>
       <div class="col-category">
         <span class="col-header-label">CATEGORY</span>
-        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}">
+        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}" data-max="1">
           <input type="hidden" class="row-cat-val" value="">
           <div class="combobox-input-wrapper"><input type="text" class="combobox-input" placeholder="Select Category" autocomplete="off"></div>
           <div class="combobox-dropdown" id="ddCat_${rowIndex}"></div>
@@ -1155,7 +1174,7 @@ function addSegmentationRow(containerId, typePrefix, segmentType) {
       </div>
       <div class="col-category">
         <span class="col-header-label">CATEGORY</span>
-        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}">
+        <div class="searchable-combobox combobox-category-target" id="cbCat_${rowIndex}" data-max="1">
           <input type="hidden" class="row-cat-val" value="">
           <div class="combobox-input-wrapper"><input type="text" class="combobox-input" placeholder="Select Category" autocomplete="off"></div>
           <div class="combobox-dropdown" id="ddCat_${rowIndex}"></div>
@@ -1315,12 +1334,25 @@ if (btnHitungTargeted) {
         return opt ? opt.textContent.trim() : (BRAND_DATA_INDOFOOD[brandVal]?.label || brandVal);
       }
 
-      // Helper: ambil label chips dari combobox dalam satu row
+      // Helper: ambil label chips dari combobox dalam satu row, expand "Pilih Semua" jika perlu
       function getChipLabels(row, comboboxClass) {
         const combobox = row.querySelector(comboboxClass);
         if (!combobox) return [];
         const chips = combobox.querySelectorAll('.combobox-chip span:first-child');
-        return Array.from(chips).map(ch => ch.textContent.trim()).filter(t => t);
+        let labels = Array.from(chips).map(ch => ch.textContent.trim()).filter(t => t);
+        
+        // Jika hanya ada chip "Pilih Semua", ambil semua label dari dropdown
+        if (labels.length === 1 && labels[0] === 'Pilih Semua') {
+          const dropdown = combobox.querySelector('.combobox-dropdown');
+          if (dropdown) {
+            const allOptions = Array.from(dropdown.querySelectorAll('.combobox-option:not(.select-all-option)'))
+              .filter(opt => opt.dataset.value !== 'all');
+            if (allOptions.length > 0) {
+              labels = allOptions.map(opt => opt.textContent.trim());
+            }
+          }
+        }
+        return labels;
       }
 
       if (targetedType === 'historical') {
@@ -1642,12 +1674,25 @@ document.getElementById("btnHitungAffinity").addEventListener("click", function 
     const comboboxId = affinityBy === 'categories' ? 'comboboxAffinityCategory' : 'comboboxAffinityPLU';
     const container = document.getElementById(comboboxId);
     const chips = container.querySelectorAll('.combobox-chip');
-    const chipMap = {};
-    chips.forEach(chip => { const val = chip.querySelector('.chip-remove')?.dataset.value, label = chip.textContent.trim().replace('×', ''); if (val) chipMap[val] = label; });
+    const labelMap = {};
+    // Populate dari dropdown options agar label tersedia meskipun chip-nya "Pilih Semua"
+    const dropdown = container.querySelector('.combobox-dropdown');
+    if (dropdown) {
+      dropdown.querySelectorAll('.combobox-option:not(.select-all-option)').forEach(opt => {
+        const v = opt.dataset.value;
+        if (v && v !== 'all') labelMap[v] = opt.textContent.trim();
+      });
+    }
+    // Backup dari chips jika dropdown tidak tersedia atau berbeda
+    chips.forEach(chip => { 
+      const val = chip.querySelector('.chip-remove')?.dataset.value, 
+            label = chip.textContent.trim().replace('×', ''); 
+      if (val && val !== 'all') labelMap[val] = label; 
+    });
     let total = 0;
     let breakdownHTML = `<div style="font-size:0.82rem;color:var(--text-base);line-height:1.5;"><div style="font-weight:600;margin-bottom:8px;color:var(--primary);">Detail Audience per ${affinityBy === 'categories' ? 'Category' : 'PLU'}:</div>`;
     selectedValues.forEach(val => {
-      const label = chipMap[val] || val.replace(/_/g, ' ').toUpperCase();
+      const label = labelMap[val] || val.replace(/_/g, ' ').toUpperCase();
       const itemAudience = 8000 + Math.floor(Math.random() * 15000);
       total += itemAudience;
       breakdownHTML += `<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px dashed rgba(0,0,0,0.05);"><span style="color:var(--text-muted);">${label}</span><span style="font-weight:600;color:var(--text-base);">${itemAudience.toLocaleString('id-ID')}</span></div>`;

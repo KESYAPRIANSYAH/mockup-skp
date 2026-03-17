@@ -1075,13 +1075,34 @@ document.querySelectorAll('input[name="campaignType"]').forEach((radio) => {
       toggleAffinityFields(); resetTargetedFields();
     } else {
       affinitySection.style.display = "none"; targetingSection.style.display = "block";
+      
+      // Auto-select Segmentation & Loyalty if nothing is selected
+      const targetedTypeChecked = document.querySelector('input[name="targetedType"]:checked');
+      if (!targetedTypeChecked) {
+        const segRadio = document.querySelector('input[name="targetedType"][value="segmentation"]');
+        if (segRadio) {
+          segRadio.checked = true;
+          segRadio.dispatchEvent(new Event('change'));
+        }
+      }
+
+      const segmentationTypeChecked = document.querySelector('input[name="segmentationType"]:checked');
+      if (!segmentationTypeChecked) {
+        const loyaltyRadio = document.querySelector('input[name="segmentationType"][value="loyalty"]');
+        if (loyaltyRadio) {
+          loyaltyRadio.checked = true;
+          loyaltyRadio.dispatchEvent(new Event('change'));
+        }
+      }
+
       resetCombobox('comboboxBrand'); resetCombobox('comboboxCategory');
       resetCombobox('comboboxBrandAffinityTarget'); resetCombobox('comboboxCategoryAffinityTarget'); resetCombobox('comboboxAffinityInclude');
-      document.getElementById("affinityCategoryGroup").style.display = "none";
-      document.getElementById("audienceCard").style.display = "none";
-      document.getElementById("btnHitungAffinity").style.display = "none";
+      if (document.getElementById("affinityCategoryGroup")) document.getElementById("affinityCategoryGroup").style.display = "none";
+      if (document.getElementById("audienceCard")) document.getElementById("audienceCard").style.display = "none";
+      if (document.getElementById("btnHitungAffinity")) document.getElementById("btnHitungAffinity").style.display = "none";
       if (document.getElementById("hitungAffinityNote")) document.getElementById("hitungAffinityNote").style.display = "none";
-      document.getElementById("affinityCheckboxes").innerHTML = "";
+      const affCheckboxes = document.getElementById("affinityCheckboxes");
+      if (affCheckboxes) affCheckboxes.innerHTML = "";
       const affinityTargetRows = document.getElementById("affinityTargetRowsContainer");
       if (affinityTargetRows) affinityTargetRows.innerHTML = "";
       const selectAllAffinity = document.getElementById("selectAllAffinitySKU");
@@ -1093,12 +1114,16 @@ document.querySelectorAll('input[name="campaignType"]').forEach((radio) => {
 
 function resetTargetedFields() {
   const el = (id) => document.getElementById(id);
-  if (el('targetedType')) el('targetedType').value = '';
+  
+  // Reset radio buttons
+  document.querySelectorAll('input[name="targetedType"]').forEach(r => r.checked = false);
+  document.querySelectorAll('input[name="segmentationType"]').forEach(r => r.checked = false);
+
   if (el('segmentationWrapper')) el('segmentationWrapper').style.display = 'none';
   if (el('historicalWrapper')) el('historicalWrapper').style.display = 'none';
-  if (el('segmentationType')) el('segmentationType').value = '';
   if (el('loyaltyFields')) el('loyaltyFields').style.display = 'none';
   if (el('nelFields')) el('nelFields').style.display = 'none';
+  
   resetCombobox('comboboxDCSegment');
   const loyaltyContainer = document.getElementById('loyaltyRowsContainer'); if (loyaltyContainer) loyaltyContainer.innerHTML = '';
   const nelContainer = document.getElementById('nelRowsContainer'); if (nelContainer) nelContainer.innerHTML = '';
